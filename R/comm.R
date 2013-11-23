@@ -1,4 +1,3 @@
-
 getTwitterOAuth = function(consumer_key, consumer_secret) {
   stop("ROAuth is no longer used in favor of httr, please see ?setup_twitter_oauth")
 }
@@ -165,6 +164,7 @@ doPagedAPICall = function(cmd, num, params=NULL, method='GET', ...) {
 
 doCursorAPICall = function(cmd, type, num=NULL, params=NULL, method='GET', ...) {
   cursor <- -1
+  print(cursor)
   if (!is.null(num)) {
     if (num <= 0)
       stop("num must be positive")
