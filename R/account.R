@@ -3,7 +3,7 @@ getCurRateLimitInfo <- function(resources=character(), ...) {
   if (length(resources) > 0) {
     params[["resources"]] = paste(resources, collapse=",")
   }
-  json <- twInterfaceObj$doAPICall("application/rate_limit_status", params=NULL, ...)
+  json <- twInterfaceObj$doAPICall("application/rate_limit_status", params=params, ...)
   if (! "resources" %in% names(json)) {
     stop("Invalid response from server - no 'resources' field in JSON")
   }
