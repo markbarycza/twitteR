@@ -61,7 +61,7 @@ tw_from_response = function(response) {
 }
 
 doAPICall = function(cmd, params=NULL, method="GET", retryCount=5, 
-                     retryOnRateLimit=NULL, ...) {
+                     retryOnRateLimit=1, ...) {
   if (!is.numeric(retryOnRateLimit)) {
     stop("retryOnRateLimit must be a number")
   }
