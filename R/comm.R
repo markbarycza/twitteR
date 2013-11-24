@@ -163,7 +163,7 @@ doPagedAPICall = function(cmd, num, params=NULL, method='GET', ...) {
 }
 
 doCursorAPICall = function(cmd, type, num=NULL, params=NULL, method='GET', ...) {
-  cursor <- -1
+  ## cursor <- -1
   if (!is.null(num)) {
     if (num <= 0)
       stop("num must be positive")
