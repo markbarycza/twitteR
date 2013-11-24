@@ -61,7 +61,7 @@ tw_from_response = function(response) {
 }
 
 doAPICall = function(cmd, params=NULL, method="GET", retryCount=5, 
-                     retryOnRateLimit=0, ...) {
+                     retryOnRateLimit=NULL, ...) {
   if (!is.numeric(retryOnRateLimit)) {
     stop("retryOnRateLimit must be a number")
   }
@@ -163,7 +163,7 @@ doPagedAPICall = function(cmd, num, params=NULL, method='GET', ...) {
 }
 
 doCursorAPICall = function(cmd, type, num=NULL, params=NULL, method='GET', ...) {
-  ## cursor <- -1
+  cursor <- -1
   if (!is.null(num)) {
     if (num <= 0)
       stop("num must be positive")
