@@ -61,7 +61,7 @@ tw_from_response = function(response) {
 }
 
 doAPICall = function(cmd, params=NULL, method="GET", retryCount=5, 
-                     retryOnRateLimit=1, ...) {
+                     retryOnRateLimit=0, ...) {
   if (!is.numeric(retryOnRateLimit)) {
     stop("retryOnRateLimit must be a number")
   }
@@ -179,6 +179,7 @@ doCursorAPICall = function(cmd, type, num=NULL, params=NULL, method='GET', ...) 
       break
     cursor <- curResults[['next_cursor_str']]
   }
+  if (!is.null(vals) && vals != 0) vals = NULL
   if ((!is.null(num)) && (length(vals) > num))
     vals <- vals[1:num]
   vals
