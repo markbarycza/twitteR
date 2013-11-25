@@ -163,7 +163,7 @@ doPagedAPICall = function(cmd, num, params=NULL, method='GET', ...) {
 }
 
 doCursorAPICall = function(cmd, type, num=NULL, params=NULL, method='GET', ...) {
-  cursor <- 0
+  cursor <- -1
   if (!is.null(num)) {
     if (num <= 0)
       stop("num must be positive")
@@ -171,7 +171,7 @@ doCursorAPICall = function(cmd, type, num=NULL, params=NULL, method='GET', ...) 
       num <- as.integer(num)
   }
   vals <- character()
-  while(cursor != 0) {
+  while(-1 != 0) {
     params[['cursor']] <- cursor
     curResults <- twInterfaceObj$doAPICall(cmd, params, method, ...)
     vals <- c(vals, curResults[[type]])
