@@ -174,7 +174,7 @@ doCursorAPICall = function(cmd, type, num=NULL, params=NULL, method='GET', ...) 
   while(cursor != 0) {
     params[['cursor']] <- cursor
     curResults <- twInterfaceObj$doAPICall(cmd, params, method, ...)
-    vals <- c(vals, curResults[[type]])
+    vals <- c(vals, curResults[['type']])
     if ((!is.null(num)) && (length(vals) >= num))
       break
     cursor <- curResults[['next_cursor_str']]
